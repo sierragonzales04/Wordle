@@ -1,0 +1,148 @@
+<!--
+Team Blue: Emma Kennedy, Sierra Gonzales, Matthew Miller, Kevin Xia
+CS362 Spring 2024
+Professor Sheehy
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Wordle Team Blue</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div style="width: 100%; overflow: hidden;">
+            <div>
+            <p id="win">On going game</p>
+    
+            <button id="restartButton">Restart Game</button>
+            <br><br>
+            <button id="statistics">Show Statistics</button>
+        </div>
+
+            <div>
+            <div class="grid-container">
+                <div id="R1C1" class="grid-item"></div>
+                <div id="R1C2" class="grid-item"></div>
+                <div id="R1C3" class="grid-item"></div>
+                <div id="R1C4" class="grid-item"></div>
+                <div id="R1C5" class="grid-item"></div>
+                <div id="R2C1" class="grid-item"></div>
+                <div id="R2C2" class="grid-item"></div>
+                <div id="R2C3" class="grid-item"></div>
+                <div id="R2C4" class="grid-item"></div>
+                <div id="R2C5" class="grid-item"></div>
+                <div id="R3C1" class="grid-item"></div>
+                <div id="R3C2" class="grid-item"></div>
+                <div id="R3C3" class="grid-item"></div>
+                <div id="R3C4" class="grid-item"></div>
+                <div id="R3C5" class="grid-item"></div>
+                <div id="R4C1" class="grid-item"></div>
+                <div id="R4C2" class="grid-item"></div>
+                <div id="R4C3" class="grid-item"></div>
+                <div id="R4C4" class="grid-item"></div>
+                <div id="R4C5" class="grid-item"></div>
+                <div id="R5C1" class="grid-item"></div>
+                <div id="R5C2" class="grid-item"></div>
+                <div id="R5C3" class="grid-item"></div>
+                <div id="R5C4" class="grid-item"></div>
+                <div id="R5C5" class="grid-item"></div>
+                <div id="R6C1" class="grid-item"></div>
+                <div id="R6C2" class="grid-item"></div>
+                <div id="R6C3" class="grid-item"></div>
+                <div id="R6C4" class="grid-item"></div>
+                <div id="R6C5" class="grid-item"></div>
+                </div>
+
+                <div class="key-grid-container1">
+                    <div id="KeyQ" class="key-item">Q</div>
+                    <div id="KeyW" class="key-item">W</div>
+                    <div id="KeyE" class="key-item">E</div>
+                    <div id="KeyR" class="key-item">R</div>
+                    <div id="KeyT" class="key-item">T</div>
+                    <div id="KeyY" class="key-item">Y</div>
+                    <div id="KeyU" class="key-item">U</div>
+                    <div id="KeyI" class="key-item">I</div>
+                    <div id="KeyO" class="key-item">O</div>
+                    <div id="KeyP" class="key-item">P</div>
+                    <div id="KeyBackspace" class="key-item">⌫</div>
+                </div>
+                <div class="key-grid-container2">
+                    <div id="KeyA" class="key-item">A</div>
+                    <div id="KeyS" class="key-item">S</div>
+                    <div id="KeyD" class="key-item">D</div>
+                    <div id="KeyF" class="key-item">F</div>
+                    <div id="KeyG" class="key-item">G</div>
+                    <div id="KeyH" class="key-item">H</div>
+                    <div id="KeyJ" class="key-item">J</div>
+                    <div id="KeyK" class="key-item">K</div>
+                    <div id="KeyL" class="key-item">L</div>
+                    <div id="KeyEnter" class="key-item">⏎</div>
+                </div>
+                <div class="key-grid-container3">
+                    <div id="KeyZ" class="key-item">Z</div>
+                    <div id="KeyX" class="key-item">X</div>
+                    <div id="KeyC" class="key-item">C</div>
+                    <div id="KeyV" class="key-item">V</div>
+                    <div id="KeyB" class="key-item">B</div>
+                    <div id="KeyN" class="key-item">N</div>
+                    <div id="KeyM" class="key-item">M</div>
+                </div>
+        </div>
+
+        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <div id="closeModal" class="closeModal">X</div>
+            </div>
+            <h1 style="text-align: center"><span id="message"></span></h1>
+                    <h3 style="text-align: center; font-size: 20px">STATISTICS</h3>
+                    <table class="statisticsTable">
+                        <tr>
+                            <td style="text-align: center; font-size: 35px;", width="25%"><span id="_wins"></span></td>
+                            <td style="text-align: center; font-size: 35px;", width="25%"><span id="_losses"></span></td>
+                            <td style="text-align: center; font-size: 35px;", width="25%"><span id="_streak"></span></td>
+                            <td style="text-align: center; font-size: 35px;", width="25%"><span id="winPercent"></span></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center; font-size: 15px;"><h3>Wins</h3></td>
+                            <td style="text-align: center; font-size: 15px;"><h3>Losses</h3></td>
+                            <td style="text-align: center; font-size: 15px;"><h3>Streak</h3></td>
+                            <td style="text-align: center; font-size: 15px;"><h3>Win %</h3></td>
+                        </tr>
+                    </table>
+            <h3 style="text-align: center; font-size: 20px"> GUESS DISTRIBUTION</h3>
+            <table style="margin-left:100px">
+                <tr>
+                    <td>1|</td>
+                    <td><span id="__1G"></span></td></tr>
+                </tr>
+                <tr>
+                    <td>2|</td>
+                    <td><span id="__2G"></span></td></tr>
+                </tr>
+                <tr>
+                    <td>3|</td>
+                    <td><span id="__3G"></span></td></tr>
+                </tr>
+                <tr>
+                    <td>4|</td>
+                    <td><span id="__4G"></span></td></tr>
+                </tr>
+                <tr>
+                    <td>5|</td>
+                    <td><span id="__5G"></span></td></tr>
+                </tr>
+                <tr>
+                    <td>6|</td>
+                    <td><span id="__6G"></span></td></tr>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
